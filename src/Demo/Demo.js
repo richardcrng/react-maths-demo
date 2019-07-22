@@ -1,23 +1,24 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useClickAway } from 'react-use';
 import DemoKeypad from './Keypad';
 import DemoApp from './App';
 import { MathsEnabler, isAMathQuillElement } from 'react-maths';
+import { actions } from '../redux/leaves';
 
 function Demo() {
-  // eslint-disable-next-line no-unused-vars
-  const [showKeypad, setShowKeypad] = React.useState(true)
+  const dispatch = useDispatch()
+  const isKeypadShowing = useSelector(state => state.isKeypadShowing)
 
-  const handleKeypadHide = () => setShowKeypad(false)
-  const handleKeypadShow = () => setShowKeypad(true)
+  const handleKeypadHide = () => dispatch(actions.isKeypadShowing.create.off())
+  const handleKeypadShow = () => dispatch(actions.isKeypadShowing.create.on())
 
   const keypadRef = React.useRef()
   useClickAway(keypadRef, (event) => {
-    if (isAMathQuillElement(event.target)) {
-      console.log('a mathquill-block', event.target)
-    } else {
-      console.log('not a mathquill-block', event.target)
+    if (!isAMathQuillElement(event.target)) {
       handleKeypadHide()
+    } else {
+      console.log('clickaway on', event.target, event.target.className)
     }
   })
 
@@ -32,7 +33,7 @@ function Demo() {
           height: '40vh',
           width: '100%'
         }}
-        when={showKeypad}
+        when={isKeypadShowing}
       />
     </MathsEnabler>
   )

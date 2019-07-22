@@ -1,5 +1,3 @@
-const initialState = {
-
-}
+import initialState from "./initialState";
 
 export default initialState
