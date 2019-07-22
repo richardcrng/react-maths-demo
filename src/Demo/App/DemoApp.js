@@ -11,6 +11,7 @@ function DemoApp({ handleKeypadHide, handleKeypadShow }) {
     <>
       <MathsInput
         ref={inputRefOne}
+        id='inputOne'
         onFocus={handleKeypadShow}
         onClick={() => {
           handleKeypadShow()
@@ -20,6 +21,7 @@ function DemoApp({ handleKeypadHide, handleKeypadShow }) {
       />
       <MathsInput
         ref={inputRefTwo}
+        id='inputTwo'
         onFocus={handleKeypadShow}
         onClick={() => {
           handleKeypadShow()

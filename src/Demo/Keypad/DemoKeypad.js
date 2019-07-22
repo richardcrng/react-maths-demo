@@ -2,9 +2,9 @@ import React from 'react';
 import { MdArrowBack, MdArrowDownward, MdArrowForward, MdArrowUpward, MdSend } from 'react-icons/md';
 import { MathsKeypad } from 'react-maths';
 
-function DemoKeypad({ style, when, ...rest }, ref) {
+function DemoKeypad({ onInput, style, when, ...rest }, ref) {
   return (
-    <MathsKeypad ref={ref} {...{ style, when, ...rest }}>
+    <MathsKeypad ref={ref} {...{ onInput, style, when, ...rest }}>
       <MathsKeypad.Row weight={0.5}>
         <MathsKeypad.Key component={MdArrowBack} keystroke="Left" />
         <MathsKeypad.Key component={MdArrowForward} keystroke="Right" />
