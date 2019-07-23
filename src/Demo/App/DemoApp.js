@@ -13,20 +13,14 @@ function DemoApp({ handleKeypadHide, handleKeypadShow }) {
         ref={inputRefOne}
         id='inputOne'
         onFocus={handleKeypadShow}
-        onClick={() => {
-          handleKeypadShow()
-          setActive(inputRefOne.current)
-        }}
+        onClick={handleKeypadShow}
         style={{ display: 'block', margin: '10px', width: '50px' }}
       />
       <MathsInput
         ref={inputRefTwo}
         id='inputTwo'
         onFocus={handleKeypadShow}
-        onClick={() => {
-          handleKeypadShow()
-          setActive(inputRefTwo.current)
-        }}
+        onClick={handleKeypadShow}
         style={{ display: 'block', margin: '10px', width: '50px' }}
       />
     </>
